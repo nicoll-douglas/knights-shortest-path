@@ -1,15 +1,15 @@
 import { createContext, useState } from "react";
 
-const InputContext = createContext();
+const BoardContext = createContext();
 
-function InputProvider({ children }) {
+function BoardProvider({ children }) {
   const [knightPosition, setKnightPosition] = useState(null);
   const [targetPosition, setTargetPosition] = useState(null);
   const [moves, setMoves] = useState(null);
   const [path, setPath] = useState(null);
 
   return (
-    <InputContext.Provider
+    <BoardContext.Provider
       value={{
         knightPosition,
         setKnightPosition,
@@ -22,8 +22,8 @@ function InputProvider({ children }) {
       }}
     >
       {children}
-    </InputContext.Provider>
+    </BoardContext.Provider>
   );
 }
 
-export { InputContext, InputProvider };
+export { BoardContext, BoardProvider };

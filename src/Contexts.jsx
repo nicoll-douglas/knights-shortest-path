@@ -1,11 +1,11 @@
 import { ChakraProvider } from "@chakra-ui/provider";
 import theme from "./theme/index";
-import { InputProvider } from "./lib/InputContext";
+import { BoardProvider } from "./lib/BoardContext";
 
 export default function Contexts({ children }) {
   return (
     <ChakraProvider theme={theme}>
-      <InputProvider>{children}</InputProvider>
+      <BoardProvider>{children}</BoardProvider>
     </ChakraProvider>
   );
 }

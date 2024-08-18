@@ -1,4 +1,4 @@
-import useInput from "../../lib/useInput";
+import useBoard from "../../lib/useBoard";
 import shortestNumberOfKnightMoves from "../../lib/shortestNumberOfKnightMoves";
 import { Button, Flex, Tag } from "@chakra-ui/react";
 
@@ -11,7 +11,7 @@ export default function BoardInterface() {
     moves,
     setMoves,
     setPath,
-  } = useInput();
+  } = useBoard();
 
   return (
     <Flex gap={3} flexWrap={"wrap"}>

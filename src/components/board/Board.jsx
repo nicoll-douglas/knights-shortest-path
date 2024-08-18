@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import BoardButton from "./BoardButton";
 import BoardLabel from "./BoardLabel";
-import useInput from "../../lib/useInput";
+import useBoard from "../../lib/useBoard";
 
 export default function Board() {
   const {
@@ -11,7 +11,7 @@ export default function Board() {
     setTargetPosition,
     path,
     setPath,
-  } = useInput();
+  } = useBoard();
 
   function isTarget(row, col) {
     return (
