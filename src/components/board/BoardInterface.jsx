@@ -14,7 +14,11 @@ export default function BoardInterface() {
   } = useBoard();
 
   return (
-    <Flex gap={3} flexWrap={"wrap"}>
+    <Flex
+      gap={3}
+      flexWrap={"wrap"}
+      justifyContent={{ base: "center", xl: "start" }}
+    >
       <Button
         maxW={"fit-content"}
         isDisabled={!knightPosition || !targetPosition}

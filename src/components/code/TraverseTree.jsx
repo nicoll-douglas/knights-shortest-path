@@ -18,7 +18,7 @@ export default function TraverseTree() {
     const possibleMoves = getPossibleKnightMoves(currentPosition); // get moves
     
     possibleMoves.forEach((move) => {
-      queue.push(move); // push moves to queue to be examined
+      queue.push(move); // push move to be examined for target
     });
   }
 }`}</Code>

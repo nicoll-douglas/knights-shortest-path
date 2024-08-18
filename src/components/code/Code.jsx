@@ -1,11 +1,11 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Code({ children, style }) {
   return (
     <SyntaxHighlighter
       language="javascript"
-      style={nightOwl}
+      style={tomorrow}
       customStyle={style}
     >
       {children}
