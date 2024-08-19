@@ -11,7 +11,7 @@ export default function KnightShortestPath() {
       as={"section"}
       aria-label="Knight's Shortest Path"
     >
-      <Heading mb={3} as={"h1"} display={{ base: "none", xl: "block" }}>
+      <Heading mb={3} as={"h1"}>
         {"Knight's Shortest Path"}
       </Heading>
       <Text mb={4}>

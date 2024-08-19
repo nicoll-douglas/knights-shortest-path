@@ -10,17 +10,17 @@ export default function Section({ codeSnippet, children, ...rest }) {
     >
       <Flex
         width={{ base: "xs", sm: "md", md: "lg" }}
-        alignItems={"start"}
-        justifyContent={"end"}
-      >
-        {codeSnippet}
-      </Flex>
-      <Flex
-        width={{ base: "xs", sm: "md", md: "lg" }}
         flexDir={"column"}
         gap={4}
       >
         {children}
+      </Flex>
+      <Flex
+        width={{ base: "xs", sm: "md", md: "lg" }}
+        alignItems={"start"}
+        justifyContent={"end"}
+      >
+        {codeSnippet}
       </Flex>
     </Flex>
   );

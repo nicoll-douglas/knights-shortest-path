@@ -1,5 +1,5 @@
 import Board from "./components/board/Board";
-import { Container, Center, Flex, Heading, Spinner } from "@chakra-ui/react";
+import { Container, Center, Flex, Spinner } from "@chakra-ui/react";
 import KnightShortestPath from "./components/article/KnightShortestPath";
 import Solution from "./components/article/Solution";
 import { useEffect, useState } from "react";
@@ -45,16 +45,8 @@ function App() {
           flexDir={{ base: "column", xl: "row" }}
           mb={32}
         >
-          <Heading
-            textAlign={"center"}
-            as={"h1"}
-            mb={2}
-            display={{ base: "block", xl: "none" }}
-          >
-            {"Knight's Shortest Path"}
-          </Heading>
-          <Board />
           <KnightShortestPath />
+          <Board />
         </Flex>
         <Solution />
       </Center>
