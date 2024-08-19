@@ -27,14 +27,14 @@ export default function Board() {
 
   function handleLeftClick(row, col) {
     if (path) setPath(null);
-    if (isTarget(row, col)) return setTargetPosition(null);
+    if (isTarget(row, col)) setTargetPosition(null);
     if (isKnight(row, col)) return setKnightPosition(null);
     setKnightPosition([row, col]);
   }
 
   function handleRightClick(row, col) {
     if (path) setPath(null);
-    if (isKnight(row, col)) return setKnightPosition(null);
+    if (isKnight(row, col)) setKnightPosition(null);
     if (isTarget(row, col)) return setTargetPosition(null);
     setTargetPosition([row, col]);
   }
