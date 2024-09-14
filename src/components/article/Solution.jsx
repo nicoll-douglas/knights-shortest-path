@@ -22,15 +22,17 @@ export default function Solution() {
   return (
     <Box maxW={"full"} as="article" aria-labelledby="heading-2">
       <Heading id="heading-2">Solution</Heading>
-      <Button
-        href="https://github.com/nicoll-douglas/knights-shortest-path/tree/main/src/lib/knights-shortest-path"
-        as={Link}
-        variant={"link"}
-        target="_blank"
-        mb={6}
-      >
-        Source <ExternalLinkIcon mx={"3px"} />
-      </Button>
+      <Flex mb={6} gap={2} alignItems={"center"}>
+        <Button
+          href="https://github.com/nicoll-douglas/knights-shortest-path/tree/main/src/lib/knights-shortest-path"
+          as={Link}
+          variant={"link"}
+          target="_blank"
+        >
+          Source <ExternalLinkIcon mx={"3px"} />
+        </Button>
+        |<Text>Try refreshing the page if the code snippets fail to load.</Text>
+      </Flex>
       <Flex gap={10} flexDir={"column"}>
         <Section
           codeSnippet={<Steps style={{ flex: 1 }} />}
