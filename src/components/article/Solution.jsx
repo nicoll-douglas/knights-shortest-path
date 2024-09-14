@@ -78,7 +78,7 @@ export default function Solution() {
             <Code>getPossibleKnightMoves</Code> numerically adds each of the
             vectors in <Code>STEPS</Code> to the position to check this,
             eventually returning an array, <Code>moves</Code>, of the possible
-            moves that can be made
+            moves that can be made.
           </Text>
         </Section>
 
@@ -192,7 +192,7 @@ export default function Solution() {
             possible move <Code>move</Code> of <Code>currentPosition</Code>,{" "}
             <Code>
               movesCounter[move.toString()] =
-              movesCounter[currentPosition.toString()] + 1
+              movesCounter[currentPosition.toString()] + 1;
             </Code>
             .
           </Text>
@@ -245,7 +245,8 @@ export default function Solution() {
           </OrderedList>
           <Text>
             So given this, we should avoid pushing the current possible move to
-            the queue if it&apos;s count is already registered.
+            the queue if it&apos;s count is already registered as equal to or
+            less than.
           </Text>
           <Text>
             And so, that leaves us with a refactored and complete function

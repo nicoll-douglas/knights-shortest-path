@@ -22,7 +22,7 @@ export default function shortestNumberOfKnightMoves(
     const possibleMoves = getPossibleKnightMoves(currentPosition); // get moves
 
     possibleMoves.forEach((move) => {
-      if (move.toString() in movesCounter) return; // avoid traversing again
+      if (move.toString() in movesCounter) return; // avoid traversing again if count already registered
       queue.push(move); // push move to be examined for target
 
       // no. of moves to possible is moves to current plus 1
@@ -31,7 +31,7 @@ export default function shortestNumberOfKnightMoves(
     });
   }
 
-  return movesCounter[targetPosition.toString()];
+  return movesCounter[targetPosition.toString()]; // shortest number of moves when loop ends
 }`}</Code>
   );
 }
