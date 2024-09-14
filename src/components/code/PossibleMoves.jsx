@@ -2,7 +2,9 @@ import Code from "./Code";
 
 export default function PossibleMoves() {
   return (
-    <Code>{`function getPossibleKnightMoves(position) {
+    <Code>{`import STEPS from "./steps.js"
+
+export default function getPossibleKnightMoves(position) {
   const [x, y] = position;
   const moves = [];
   // check if move is on the board for each step
@@ -17,6 +19,6 @@ export default function PossibleMoves() {
   return moves;
 }
 
-getPossibleKnightMoves([0, 0]) // returns: [[1, 2], [2, 1]] `}</Code>
+// e.g getPossibleKnightMoves([0, 0]) would return [[1, 2], [2, 1]]`}</Code>
   );
 }

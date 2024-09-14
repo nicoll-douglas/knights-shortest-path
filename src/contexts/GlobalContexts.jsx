@@ -1,8 +1,8 @@
 import { ChakraProvider } from "@chakra-ui/provider";
-import theme from "./theme/index";
-import { BoardProvider } from "./lib/BoardContext";
+import theme from "../theme";
+import { BoardProvider } from "./BoardContext";
 
-export default function Contexts({ children }) {
+export default function GlobalContexts({ children }) {
   return (
     <ChakraProvider theme={theme}>
       <BoardProvider>{children}</BoardProvider>

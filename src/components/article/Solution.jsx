@@ -8,19 +8,24 @@ import {
   ListItem,
 } from "@chakra-ui/layout";
 import Section from "./Section";
-import Steps from "../code/Steps";
-import PossibleMoves from "../code/PossibleMoves";
-import NumberOfMoves from "../code/NumberOfMoves";
-import TraverseTree from "../code/TraverseTree";
+import {
+  Steps,
+  GetPossibleKnightMoves,
+  ShortestNumberOfKnightMoves,
+  BreadthFirstSearch,
+} from "../code";
 
 export default function Solution() {
   return (
-    <Box maxW={"full"}>
-      <Heading mb={4}>Solution</Heading>
+    <Box maxW={"full"} as="article" aria-labelledby="heading-2">
+      <Heading mb={4} id="heading-2">
+        Solution
+      </Heading>
       <Flex gap={10} flexDir={"column"}>
         <Section
           codeSnippet={<Steps style={{ flex: 1 }} />}
           heading={"Part 1 - How does the Knight Move"}
+          snippetCaption={"src/steps.js"}
         >
           <Text>
             My first thought when attempting this problem was how the knight
@@ -36,8 +41,9 @@ export default function Solution() {
         </Section>
 
         <Section
-          codeSnippet={<PossibleMoves />}
+          codeSnippet={<GetPossibleKnightMoves />}
           heading={"Part 2 - Knight Moves vs. Possible Knight Moves"}
+          snippetCaption={"src/getPossibleKnightMoves.js"}
         >
           <Text>
             My next thought was that, for every position that a knight can be
@@ -93,7 +99,8 @@ export default function Solution() {
 
         <Section
           heading="Part 4 - Implementing the Algorithm"
-          codeSnippet={<TraverseTree />}
+          codeSnippet={<BreadthFirstSearch />}
+          snippetCaption={"src/breadthFirstSearch.js"}
         >
           <Text>
             Now that I had the algorithm I could start working on the solution.
@@ -187,7 +194,8 @@ export default function Solution() {
         </Section>
         <Section
           heading={"Part 6 - Obtaining the Correct Result"}
-          codeSnippet={<NumberOfMoves />}
+          codeSnippet={<ShortestNumberOfKnightMoves />}
+          snippetCaption={"src/shortestNumberOfKnightMoves.js"}
         >
           <Text>
             Getting around the problem of overriding took a bit of thinking but

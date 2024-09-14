@@ -1,7 +1,13 @@
 import { Flex } from "@chakra-ui/layout";
-import { Heading, Text } from "@chakra-ui/react";
+import { Heading, Tag } from "@chakra-ui/react";
 
-export default function Section({ codeSnippet, children, heading, ...rest }) {
+export default function Section({
+  codeSnippet,
+  children,
+  heading,
+  snippetCaption,
+  ...rest
+}) {
   const id = crypto.randomUUID();
 
   return (
@@ -25,6 +31,9 @@ export default function Section({ codeSnippet, children, heading, ...rest }) {
             flexDir={"column"}
             minW={{ lg: "md", xl: "lg" }}
           >
+            <Tag borderBottomLeftRadius={0} borderBottomRightRadius={0}>
+              {snippetCaption}
+            </Tag>
             {codeSnippet}
           </Flex>
         )}

@@ -6,7 +6,10 @@ export default function Code({ children, style }) {
     <SyntaxHighlighter
       language="javascript"
       style={tomorrow}
-      customStyle={style}
+      customStyle={{
+        ...style,
+        margin: 0,
+      }}
     >
       {children}
     </SyntaxHighlighter>

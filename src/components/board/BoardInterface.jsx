@@ -1,4 +1,4 @@
-import useBoard from "../../lib/useBoard";
+import { useBoard } from "../../hooks";
 import { Button, Flex, Tag } from "@chakra-ui/react";
 
 export default function BoardInterface() {

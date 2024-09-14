@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import shortestNumberOfKnightMoves from "../lib/shortestNumberOfKnightMoves";
+import { shortestNumberOfKnightMoves } from "../lib";
 
 const BoardContext = createContext();
 

@@ -11,6 +11,9 @@ export default function Steps({ style }) {
   [-2, -1],
   [-2, 1],
   [-1, 2],
-];`}</Code>
+];
+
+export default STEPS;
+`}</Code>
   );
 }

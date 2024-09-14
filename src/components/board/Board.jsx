@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import BoardButton from "./BoardButton";
 import BoardLabel from "./BoardLabel";
-import useBoard from "../../lib/useBoard";
+import { useBoard } from "../../hooks";
 
 export default function Board() {
   const { path, placeKnight, placeTarget, isKnight, isTarget } = useBoard();
