@@ -1,9 +1,5 @@
-import Code from "./Code";
+import getPossibleKnightMoves from "./getPossibleKnightMoves";
 
-export default function NumberOfMoves() {
-  return (
-    <Code>{`import getPossibleKnightMoves from "./getPossibleKnightMoves"
-      
 export default function shortestNumberOfKnightMoves(
   initialPosition,
   targetPosition
@@ -15,8 +11,7 @@ export default function shortestNumberOfKnightMoves(
 
   // iterate over queue and make sure current isn't target
   while (
-    !(queue[0][0] === targetPosition[0] &&
-      queue[0][1] === targetPosition[1])
+    !(queue[0][0] === targetPosition[0] && queue[0][1] === targetPosition[1])
   ) {
     const currentPosition = queue.shift(); // not target so remove from queue
     const possibleMoves = getPossibleKnightMoves(currentPosition); // get moves
@@ -27,11 +22,9 @@ export default function shortestNumberOfKnightMoves(
 
       // no. of moves to possible is moves to current plus 1
       movesCounter[move.toString()] =
-        movesCounter[currentPosition.toString()] + 1; 
+        movesCounter[currentPosition.toString()] + 1;
     });
   }
 
   return movesCounter[targetPosition.toString()];
-}`}</Code>
-  );
 }

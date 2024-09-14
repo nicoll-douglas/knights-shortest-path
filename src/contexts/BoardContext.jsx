@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { shortestNumberOfKnightMoves } from "../lib";
+import { shortestMovesWithPath } from "../lib/knights-shortest-path";
 
 const BoardContext = createContext();
 
@@ -43,7 +43,7 @@ function BoardProvider({ children }) {
   }
 
   function displaySolution() {
-    const { moves: result, path: resultingPath } = shortestNumberOfKnightMoves(
+    const { moves: result, path: resultingPath } = shortestMovesWithPath(
       knightPosition,
       targetPosition
     );

@@ -1,9 +1,8 @@
 import getPossibleKnightMoves from "./getPossibleKnightMoves";
 
-export default function shortestNumberOfKnightMoves(
-  initialPosition,
-  targetPosition
-) {
+// calculates the shortest number of moves as well the associated path
+
+export default function shortestMovesWithPath(initialPosition, targetPosition) {
   const movesCounter = {};
   movesCounter[initialPosition.toString()] = 0;
   const pathRecorder = {};
@@ -33,6 +32,6 @@ export default function shortestNumberOfKnightMoves(
 
   return {
     moves: movesCounter[targetPosition.toString()],
-    path: pathRecorder[targetPosition.toString()],
+    path: pathRecorder[targetPosition.toString()], //
   };
 }

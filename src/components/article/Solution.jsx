@@ -25,7 +25,7 @@ export default function Solution() {
         <Section
           codeSnippet={<Steps style={{ flex: 1 }} />}
           heading={"Part 1 - How does the Knight Move"}
-          snippetCaption={"src/steps.js"}
+          snippetCaption={"steps.js"}
         >
           <Text>
             My first thought when attempting this problem was how the knight
@@ -43,7 +43,7 @@ export default function Solution() {
         <Section
           codeSnippet={<GetPossibleKnightMoves />}
           heading={"Part 2 - Knight Moves vs. Possible Knight Moves"}
-          snippetCaption={"src/getPossibleKnightMoves.js"}
+          snippetCaption={"getPossibleKnightMoves.js"}
         >
           <Text>
             My next thought was that, for every position that a knight can be
@@ -100,7 +100,7 @@ export default function Solution() {
         <Section
           heading="Part 4 - Implementing the Algorithm"
           codeSnippet={<BreadthFirstSearch />}
-          snippetCaption={"src/breadthFirstSearch.js"}
+          snippetCaption={"breadthFirstSearch.js"}
         >
           <Text>
             Now that I had the algorithm I could start working on the solution.
@@ -195,7 +195,7 @@ export default function Solution() {
         <Section
           heading={"Part 6 - Obtaining the Correct Result"}
           codeSnippet={<ShortestNumberOfKnightMoves />}
-          snippetCaption={"src/shortestNumberOfKnightMoves.js"}
+          snippetCaption={"shortestNumberOfKnightMoves.js"}
         >
           <Text>
             Getting around the problem of overriding took a bit of thinking but
