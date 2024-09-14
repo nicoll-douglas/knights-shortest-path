@@ -1,17 +1,7 @@
 import { Container, Center } from "@chakra-ui/react";
 import { Solution, KnightShortestPath } from "../components/article";
-import { useEffect, useState } from "react";
-import { Loader } from "../components/common";
 
 export default function Index() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(setIsLoading, 250, false);
-  }, []);
-
-  if (isLoading) return <Loader />;
-
   return (
     <Container
       maxW={"6xl"}

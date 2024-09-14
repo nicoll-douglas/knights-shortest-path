@@ -6,8 +6,11 @@ import {
   Box,
   OrderedList,
   ListItem,
-} from "@chakra-ui/layout";
+  Link,
+  Button,
+} from "@chakra-ui/react";
 import Section from "./Section";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Steps,
   GetPossibleKnightMoves,
@@ -18,9 +21,16 @@ import {
 export default function Solution() {
   return (
     <Box maxW={"full"} as="article" aria-labelledby="heading-2">
-      <Heading mb={4} id="heading-2">
-        Solution
-      </Heading>
+      <Heading id="heading-2">Solution</Heading>
+      <Button
+        href="https://github.com/nicoll-douglas/knights-shortest-path/tree/main/src/lib/knights-shortest-path"
+        as={Link}
+        variant={"link"}
+        target="_blank"
+        mb={6}
+      >
+        Source <ExternalLinkIcon mx={"3px"} />
+      </Button>
       <Flex gap={10} flexDir={"column"}>
         <Section
           codeSnippet={<Steps style={{ flex: 1 }} />}

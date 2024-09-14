@@ -1,6 +1,5 @@
-import { Text, Flex, Heading, Box, Link, Button } from "@chakra-ui/react";
+import { Text, Flex, Heading, Box } from "@chakra-ui/react";
 import { Board, BoardInterface } from "../board";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export default function KnightShortestPath() {
   return (
@@ -37,17 +36,7 @@ export default function KnightShortestPath() {
             knight moves.
           </Text>
           <BoardInterface />
-          <Button
-            mt={6}
-            href="https://github.com/nicoll-douglas/knights-shortest-path/tree/main/src/lib/knights-shortest-path"
-            as={Link}
-            variant={"link"}
-            target="_blank"
-            mb={3}
-          >
-            Source <ExternalLinkIcon mx={"3px"} />
-          </Button>
-          <Text>
+          <Text mt={6}>
             Scroll down to see a walkthrough of my solution written in
             JavaScript.
           </Text>
