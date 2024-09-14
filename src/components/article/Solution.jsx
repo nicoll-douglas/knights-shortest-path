@@ -69,7 +69,7 @@ export default function Solution() {
             we must also represent the positions on the board in a similar way.
             A chess board is 8x8 so I numbered the rows and columns 0-7; array{" "}
             <Code>[0, 0]</Code> being the bottom-left position and{" "}
-            <Code>[7, 7] top-right</Code> for simplicity but the orientation of
+            <Code>[7, 7]</Code> top-right for simplicity but the orientation of
             coordinates is arbitrary.
           </Text>
           <Text>
