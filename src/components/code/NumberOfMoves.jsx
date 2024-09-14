@@ -2,7 +2,7 @@ import Code from "./Code";
 
 export default function NumberOfMoves() {
   return (
-    <Code>{`import getPossibleKnightMoves from "./getPossibleKnightMoves"
+    <Code>{`import getPossibleKnightMoves from "./getPossibleKnightMoves";
       
 export default function shortestNumberOfKnightMoves(
   initialPosition,

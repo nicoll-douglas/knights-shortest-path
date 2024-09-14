@@ -2,7 +2,7 @@ import Code from "./Code";
 
 export default function TraverseTree() {
   return (
-    <Code>{`import getPossibleKnightMoves from "./getPossibleKnightMoves"
+    <Code>{`import getPossibleKnightMoves from "./getPossibleKnightMoves";
 
 function breadthFirstSearch(
   initialPosition,

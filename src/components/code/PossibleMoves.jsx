@@ -2,7 +2,7 @@ import Code from "./Code";
 
 export default function PossibleMoves() {
   return (
-    <Code>{`import STEPS from "./steps.js"
+    <Code>{`import STEPS from "./steps";
 
 export default function getPossibleKnightMoves(position) {
   const [x, y] = position;

@@ -1,4 +1,4 @@
-import STEPS from "./steps.js";
+import STEPS from "./steps";
 
 export default function getPossibleKnightMoves(position) {
   const [x, y] = position;
