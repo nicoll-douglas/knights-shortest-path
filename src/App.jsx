@@ -1,8 +1,9 @@
 import Board from "./components/board/Board";
-import { Container, Center, Flex, Spinner } from "@chakra-ui/react";
+import { Container, Center, Flex } from "@chakra-ui/react";
 import KnightShortestPath from "./components/article/KnightShortestPath";
 import Solution from "./components/article/Solution";
 import { useEffect, useState } from "react";
+import Loader from "./components/common/Loader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,23 +12,11 @@ function App() {
     setTimeout(setIsLoading, 350, false);
   }, []);
 
-  if (isLoading)
-    return (
-      <Center
-        position={"fixed"}
-        top={0}
-        left={0}
-        minW={"100vw"}
-        minH={"100vh"}
-        bg={"orange.50"}
-      >
-        <Spinner color="orange.500" size={"xl"} />
-      </Center>
-    );
+  if (isLoading) return <Loader />;
 
   return (
     <Container
-      maxW={"container.xl"}
+      maxW={"6xl"}
       minHeight={"100vh"}
       display={"flex"}
       flexDir={"column"}
@@ -38,11 +27,12 @@ function App() {
         flexDir={"column"}
         py={{ base: 20, xl: 32 }}
         minHeight={{ xl: "100vh" }}
+        px={{ base: 0, md: 4, xl: 0 }}
       >
         <Flex
           gap={{ base: 2, sm: 4, xl: 16 }}
-          mx={{ base: 4, md: 20 }}
           flexDir={{ base: "column", xl: "row" }}
+          alignItems={{ base: "center", xl: "start" }}
           mb={32}
         >
           <KnightShortestPath />

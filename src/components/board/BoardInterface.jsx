@@ -1,17 +1,9 @@
 import useBoard from "../../lib/useBoard";
-import shortestNumberOfKnightMoves from "../../lib/shortestNumberOfKnightMoves";
 import { Button, Flex, Tag } from "@chakra-ui/react";
 
 export default function BoardInterface() {
-  const {
-    knightPosition,
-    setKnightPosition,
-    targetPosition,
-    setTargetPosition,
-    moves,
-    setMoves,
-    setPath,
-  } = useBoard();
+  const { knightPosition, targetPosition, moves, clearBoard, displaySolution } =
+    useBoard();
 
   return (
     <Flex
@@ -22,24 +14,14 @@ export default function BoardInterface() {
       <Button
         maxW={"fit-content"}
         isDisabled={!knightPosition || !targetPosition}
-        onClick={() => {
-          const { moves: result, path: resultingPath } =
-            shortestNumberOfKnightMoves(knightPosition, targetPosition);
-          setPath(resultingPath);
-          setMoves(result);
-        }}
+        onClick={() => displaySolution()}
       >
         Calculate
       </Button>
       <Button
         variant={"outline"}
         colorScheme="red"
-        onClick={() => {
-          setTargetPosition(null);
-          setKnightPosition(null);
-          setPath(null);
-          setMoves(null);
-        }}
+        onClick={() => clearBoard()}
       >
         Clear board
       </Button>

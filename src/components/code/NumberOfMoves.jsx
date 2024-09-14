@@ -9,10 +9,9 @@ export default function NumberOfMoves() {
   const movesCounter = {}; // initialise move counter
   movesCounter[initialPosition.toString()] = 0; // no. of moves from initial to initial is 0
 
-  // initialise the tree/queue with the first position
-  const queue = [initialPosition];
+  const queue = [initialPosition]; // initialise the queue
 
-  // iterate over queue and check if current position is target
+  // iterate over queue and make sure current isn't target
   while (
     !(queue[0][0] === targetPosition[0] &&
       queue[0][1] === targetPosition[1])
@@ -21,8 +20,9 @@ export default function NumberOfMoves() {
     const possibleMoves = getPossibleKnightMoves(currentPosition); // get moves
 
     possibleMoves.forEach((move) => {
-      if (move.toString() in movesCounter) return; // return if already traversed
+      if (move.toString() in movesCounter) return; // avoid traversing again
       queue.push(move); // push move to be examined for target
+
       // no. of moves to possible is moves to current plus 1
       movesCounter[move.toString()] =
         movesCounter[currentPosition.toString()] + 1; 

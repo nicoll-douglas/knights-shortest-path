@@ -1,26 +1,33 @@
 import { Flex } from "@chakra-ui/layout";
+import { Heading, Text } from "@chakra-ui/react";
 
-export default function Section({ codeSnippet, children, ...rest }) {
+export default function Section({ codeSnippet, children, heading, ...rest }) {
+  const id = crypto.randomUUID();
+
   return (
     <Flex
-      gap={{ base: 4, xl: 16 }}
+      gap={4}
       as={"section"}
-      flexDir={{ base: "column", xl: "row" }}
+      flexDir="column"
       {...rest}
+      aria-labelledby={id}
     >
-      <Flex
-        width={{ base: "xs", sm: "md", md: "lg" }}
-        flexDir={"column"}
-        gap={4}
-      >
-        {children}
-      </Flex>
-      <Flex
-        width={{ base: "xs", sm: "md", md: "lg" }}
-        alignItems={"start"}
-        justifyContent={"end"}
-      >
-        {codeSnippet}
+      <Heading size={"md"} id={id}>
+        {heading}
+      </Heading>
+      <Flex flexDir={{ base: "column", lg: "row" }} gap={{ base: 6, xl: 12 }}>
+        <Flex flexDir={"column"} gap={4}>
+          {children}
+        </Flex>
+        {codeSnippet && (
+          <Flex
+            width={{ lg: "md", xl: "lg" }}
+            flexDir={"column"}
+            minW={{ lg: "md", xl: "lg" }}
+          >
+            {codeSnippet}
+          </Flex>
+        )}
       </Flex>
     </Flex>
   );

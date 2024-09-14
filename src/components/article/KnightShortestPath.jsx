@@ -4,7 +4,6 @@ import BoardInterface from "../board/BoardInterface";
 export default function KnightShortestPath() {
   return (
     <Flex
-      w={{ base: "xs", sm: "md", md: "lg" }}
       flexDir={"column"}
       alignItems={{ base: "center", xl: "start" }}
       textAlign={{ base: "center", xl: "left" }}

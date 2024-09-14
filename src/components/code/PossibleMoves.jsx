@@ -15,6 +15,8 @@ export default function PossibleMoves() {
     }
   }
   return moves;
-}`}</Code>
+}
+
+getPossibleKnightMoves([0, 0]) // returns: [[1, 2], [2, 1]] `}</Code>
   );
 }

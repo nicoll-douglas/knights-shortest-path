@@ -6,10 +6,9 @@ export default function TraverseTree() {
   initialPosition,
   targetPosition
 ) {
-  // initialise the tree/queue with the first position
-  const queue = [initialPosition]; 
+  const queue = [initialPosition]; // initialise the queue
   
-  // iterate over queue and check if current position is target
+  // iterate over queue and make sure current isn't target
   while (
     !(queue[0][0] === targetPosition[0] &&
       queue[0][1] === targetPosition[1])
