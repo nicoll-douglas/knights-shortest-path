@@ -8,6 +8,7 @@ import {
   ListItem,
   Link,
   Button,
+  Image,
 } from "@chakra-ui/react";
 import Section from "./Section";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
@@ -17,6 +18,7 @@ import {
   ShortestNumberOfKnightMoves,
   BreadthFirstSearch,
 } from "../code";
+import treeDiagram from "../../assets/tree-diagram.png";
 
 export default function Solution() {
   return (
@@ -82,7 +84,11 @@ export default function Solution() {
           </Text>
         </Section>
 
-        <Section heading={"Part 3 - Uncovering the Algorithm"}>
+        <Section
+          heading={"Part 3 - Uncovering the Algorithm"}
+          codeSnippet={<Image src={treeDiagram} />}
+          snippetCaption={"Figure 1 - Tree Diagram"}
+        >
           <Text>
             Next I had to figure out how I would obtain the shortest path
             between any two points given that I could now calculate the possible
@@ -91,21 +97,24 @@ export default function Solution() {
           <Text>
             Eventually, I figured that arriving at this solution would require a
             representation of a tree data structure given how possible positions
-            could grow indefinitely. Each node in a layer/level of the tree
-            would represent the possible moves based on a position in the
-            previous level of the tree, starting with the initial position in
-            the first level. This also meant the depth of a node/position in the
-            tree would represent the number of moves required from the starting
-            point to get there.
+            could grow indefinitely. Like in figure 1, each node in a
+            layer/level of the tree would represent the possible moves based on
+            a position in the previous level of the tree, starting with the
+            initial position in the first level (e.g <Code>[0, 0]</Code>). This
+            also meant the depth of a node/position in the tree would represent
+            the number of moves required from the starting point to get there.
           </Text>
           <Text>
             I figured that a breadth-first search of the tree would be most
             appropriate as we want to systematically inch our way to the target
             with knight moves and check each of the possible moves along the way
-            to see if it is the target. I would use a classic queue
-            implementation of tree nodes lined up breadth-first to perform the
-            search, which would eventually be represented by an array:{" "}
-            <Code>queue</Code>.
+            to see if it is the target (represented by the dotted line).
+          </Text>
+          <Text>
+            And so, having figured out the appropriate data structure and
+            algorithm, I would use a classic queue implementation of tree nodes
+            lined up breadth-first to perform the search, which would eventually
+            be represented by an array: <Code>queue</Code>.
           </Text>
         </Section>
 
@@ -138,7 +147,7 @@ export default function Solution() {
                   Push all the possible moves to the queue to examine whether
                   any of them is the target in a future iteration.
                 </ListItem>
-                <ListItem>
+                <ListItem id="step-3.3">
                   For all the possible moves of the current position, preserve
                   the fact in some way that it took one more move to get there
                   than it did to get to the current position.
@@ -155,7 +164,7 @@ export default function Solution() {
                 <ListItem>
                   We found our target so we can stop the search.
                 </ListItem>
-                <ListItem>
+                <ListItem id="step-4.2">
                   If we preserved the number of moves for each previous position
                   along the way, then our answer would be the number of moves
                   associated with our target.
@@ -165,19 +174,20 @@ export default function Solution() {
           </OrderedList>
           <Text>
             The <Code>breadthFirstSearch</Code> function, which was my initial
-            attempt, performed the main idea of this implementation with a while
-            loop over <Code>queue</Code>. However it did not perform step 3.3 of
-            which step 4.2, our answer, depends on. The next step would be to
-            figure out how this could be done in order to tweak the function.
+            attempt, performed the main idea of this implementation with a{" "}
+            <Code>while</Code> loop over <Code>queue</Code>. However it did not
+            perform step 3.3, of which step 4.2, our answer, depends on. The
+            next step would be to figure out how this could be done in order to
+            tweak the function.
           </Text>
         </Section>
 
         <Section heading={"Part 5 - Counting Moves"}>
           <Text>
             In order to preserve the number of moves for positions that had been
-            traversed in the search as described in 3.3, my idea would be a
-            counter object <Code>movesCounter</Code> where positions would map
-            to the count.
+            traversed in the search as described in <Step33>3.3</Step33>, my
+            idea would be a counter object <Code>movesCounter</Code> where
+            positions would map to the count.
           </Text>
           <Text>
             The count for moves from the initial position to the initial
@@ -188,7 +198,7 @@ export default function Solution() {
           <Text>
             Then, upon each iteration of the loop, the move counts of new
             possible positions would be registered to the counter object which
-            would thus perform step 3.3 in the implementation. i.e for every
+            would thus perform <Step33 /> in the implementation. i.e for every
             possible move <Code>move</Code> of <Code>currentPosition</Code>,{" "}
             <Code>
               movesCounter[move.toString()] =
@@ -197,7 +207,7 @@ export default function Solution() {
             .
           </Text>
           <Text>
-            In theory this would then give us our answer in step 4.2 of the
+            In theory this would then give us our answer in <Step42 /> of the
             implementation. However, we would need to consider the possibility
             of a value in the counter object being overriden in the loop and
             thus introducing potential bugs and messing up crucial move-count
@@ -244,24 +254,41 @@ export default function Solution() {
             </ListItem>
           </OrderedList>
           <Text>
-            So given this, we should avoid pushing the current possible move to
-            the queue if it&apos;s count is already registered as equal to or
-            less than.
+            So given this, we should avoid pushing the current possible position
+            to the queue since it&apos;s count is already registered as{" "}
+            <strong>equal to or less than.</strong>
           </Text>
           <Text>
             And so, that leaves us with a refactored and complete function
             solution: <Code>shortestNumberOfKnightMoves</Code> where we
             implement the moves counter and prevent new counts for duplicate
-            moves being registered.
+            positions being registered.
           </Text>
           <Text>
             Once the loop terminates, we can be certain that our answer is{" "}
-            <Code>movesCounter[targetPosition.toString()]</Code> which we can
-            return from our function. And <em>that</em>, is the shortest number
-            of knight moves from the initial position.
+            <Code>movesCounter[targetPosition.toString()]</Code> since its count
+            would also be recorded. We can then return it from our function, and{" "}
+            <em>that</em>, is the shortest number of knight moves from the
+            initial position.
           </Text>
         </Section>
       </Flex>
     </Box>
+  );
+}
+
+function Step33({ children = "step 3.3" }) {
+  return (
+    <Link color={"orange.600"} href="#step-3.3">
+      {children}
+    </Link>
+  );
+}
+
+function Step42({ children = "step 4.2" }) {
+  return (
+    <Link color={"orange.600"} href="#step-4.2">
+      {children}
+    </Link>
   );
 }
